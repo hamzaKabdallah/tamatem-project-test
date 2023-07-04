@@ -1,0 +1,28 @@
+<mat-card class="card-container">
+  <form [formGroup]="loginForm" (submit)="submit()">
+    <img [src]="imgUrl" alt="Oops something wrong" />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="loginForm.controls.email.hasError('required')"
+        >Email is Required
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls.email.hasError('pattern')"
+        >Enter a Valid Email
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        type="password"
+      />
+      <mat-error>Password is Required </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button>LOGIN</button>
+  </form>
+</mat-card>
